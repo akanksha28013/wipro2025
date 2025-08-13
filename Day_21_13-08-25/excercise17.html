@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="ex17.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz App</h1>
+        <div class="question-container">
+            <p id="question">Question will appear here</p>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(0)">Option 1</button>
+                <button class="option" onclick="checkAnswer(1)">Option 2</button>
+                <button class="option" onclick="checkAnswer(2)">Option 3</button>
+                <button class="option" onclick="checkAnswer(3)">Option 4</button>
+            </div>
+        </div>
+        <div id="feedback"></div>
+        <button id="next-button" onclick="nextQuestion()">Next Question</button>
+        <p>Score: <span id="score">0</span></p>
+    </div>
+
+    <script src="ex17.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+        input { 
+            padding: 8px; 
+            margin: 5px 0; 
+            width: 300px;
+        }
+        button { 
+            padding: 10px; 
+            width: 300px; 
+            background-color: #af4c4c; 
+            color: white; 
+            border: none; 
+        }
+        .error { 
+            color: red; 
+            font-size: 12px; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <label>Email:</label><br>
+        <input type="email" id="email" onblur="validateEmail()">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password" onblur="validatePassword()">
+        <span id="passwordError" class="error"></span><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script src="loginform.js"></script>
+
+</body>
+</html>

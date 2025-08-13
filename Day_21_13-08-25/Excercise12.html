@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercise 12</title>
+    <script>
+        function isPalindrome(str) {
+            let len = str.length;
+            for(let i=0;i<len/2;i++){
+               if(str[i]!== str[len-1-i]){
+                return false;
+               } 
+            }
+  return true;
+}
+console.log(isPalindrome('madam'));  
+console.log(isPalindrome('hello'));  
+
+    </script>
+</head>
+<body>
+    Palindrome
+</body>
+</html>
