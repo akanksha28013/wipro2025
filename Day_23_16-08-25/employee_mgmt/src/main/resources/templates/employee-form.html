@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create/Edit Employee</title>
+</head>
+<body>
+    <h1 th:text="${employee.id != null ? 'Edit' : 'Create'} + ' Employee'"></h1>
+
+    <form th:action="@{${employee.id != null} ? '/employees/update/' + ${employee.id} : '/employees'}" 
+          th:object="${employee}" method="post">
+
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required/><br/>
+
+        <label>Type:</label>
+        <select th:field="*{type}">
+            <option value="regular">Regular</option>
+            <option value="contract">Contract</option>
+        </select><br/>
+
+        <h3>Address</h3>
+        <label>Street:</label>
+        <input type="text" th:field="*{address.street}"/><br/>
+        <label>City:</label>
+        <input type="text" th:field="*{address.city}"/><br/>
+        <label>State:</label>
+        <input type="text" th:field="*{address.state}"/><br/>
+        <label>ZIP:</label>
+        <input type="text" th:field="*{address.zip}"/><br/>
+
+        <h3>Department</h3>
+        <label>Department Name:</label>
+        <input type="text" th:field="*{department.name}"/><br/>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a th:href="@{/employees}">Back to list</a>
+</body>
+</html>
