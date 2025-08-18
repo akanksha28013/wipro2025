@@ -1,0 +1,37 @@
+<p>switchcomp works!</p>
+<!-- Excercise-13 -->
+ <!-- <select [(ngModel)]="Color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="purple">Purple</option>
+  <option value="black">Black</option> 
+</select>
+@switch (Color) {
+  @case ('red') {
+    <p style="color: red;">This text is RED!</p>
+  }
+  @case ('green') {
+    <p style="color: green;">This text is GREEN!</p>
+  }
+  @case ('blue') {
+    <p style="color: blue;">This text is BLUE!</p>
+  }
+  @case ('purple') {
+    <p style="color: purple;">This text is PURPLE!</p>
+  }
+  @default {
+    <p style="color: black;">This text is BLACK (default)!</p>
+  }
+} -->
+
+<!-- Excercise-14 -->
+
+<input type="text" [(ngModel)]="searchText" placeholder="Type to search..."/>
+<select size="6" style="width: 200px;">
+  @for (name of names; track name) {
+    @if (name.toLowerCase().startsWith(searchText.toLowerCase())) {
+      <option>{{ name }}</option>
+    }
+  }
+</select>
