@@ -1,0 +1,39 @@
+{
+  "vehicles": [
+    {
+      "id": "1",
+      "make": "Toyota",
+      "fuelType": "Petrol",
+      "model": "Corolla",
+      "price": 20000
+    },
+    {
+      "id": "2",
+      "make": "Tesla",
+      "fuelType": "Electric",
+      "model": "Model 3",
+      "price": 40000
+    },
+    {
+      "id": "3",
+      "make": "Mahindra",
+      "fuelType": "Petrol",
+      "model": "Corolla",
+      "price": 90000
+    },
+    {
+      "id": "4",
+      "make": "TATA",
+      "fuelType": "Electric",
+      "model": "Corolla",
+      "price": 90000
+    },
+    {
+      "id": "5190",
+      "make": "Toyota",
+      "fuelType": "Petrol",
+      "model": "Fortuner",
+      "price": 20000
+    }
+  ]
+}

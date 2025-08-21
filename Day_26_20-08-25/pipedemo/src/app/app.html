@@ -1,0 +1,46 @@
+ <!-- Excercise-1 -->
+<div style="margin: 2rem;">
+  <input
+    type="text" [(ngModel)]="userInput" placeholder="Enter text"
+  />
+  <p>
+     Capital Case: {{ userInput.toUpperCase() }}
+  </p>
+</div> 
+
+<!-- Excercise-2 -->
+<div style="margin: 2rem;">
+  <label for="calendar">Select a date:</label>
+  <input
+    type="date"
+    id="calendar"
+    [(ngModel)]="selectedDate"
+  />
+  @if (selectedDate) {
+    <div style="margin-top: 1rem;">
+      Selected Date (short): {{ selectedDate | date: 'short' }}
+    </div>
+  }
+</div>
+
+<!-- Ex-3: Temperature Converter -->
+ <div>
+      <h2>Example 3: Celsius to Fahrenheit</h2>
+      <label for="tempInput">Enter Temperature (°C):</label>
+      <input
+        id="tempInput"
+        type="number"
+        [(ngModel)]="temperature"
+        placeholder="e.g. 20"
+      />
+
+      <p style="margin-top: 1rem;">
+        Fahrenheit: {{ temperature | centigradeToFahrenheit }}
+      </p>
+    </div>
+
+    <!-- //Excercise-4 -->
+
+    <p appHighlighstrikethru>
+    HightLightStrikThrough
+</p>
