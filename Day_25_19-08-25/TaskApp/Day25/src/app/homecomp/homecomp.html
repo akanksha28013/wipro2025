@@ -1,0 +1,13 @@
+<div class="text-center mt-4">
+  <h2>Fruit Display</h2>
+</div>
+<div class="d-flex flex-wrap">
+  <div class="row">
+      @for (fruit of fruits; track $index) {
+      <app-displaylistcomp [fruit]="fruit"
+      (btnClick)="remove($event)"
+      class="col-md-4 mb-4">
+      </app-displaylistcomp>
+    }  
+  </div>
+
