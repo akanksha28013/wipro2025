@@ -1,0 +1,34 @@
+{
+  "product": [
+    {
+      "id": "p102",
+      "name": "Laptop",
+      "category": "Electronic",
+      "price": 65000
+    },
+    {
+      "id": "8e69",
+      "name": "Chair",
+      "category": "Furniture",
+      "price": 5000
+    },
+    {
+      "id": "b98c",
+      "name": "Cooler",
+      "category": "Electronic",
+      "price": 6000
+    },
+    {
+      "id": "e258",
+      "name": "Sofa",
+      "category": "Furniture",
+      "price": 45000
+    },
+    {
+      "id": "f7af",
+      "name": "Samsung Galaxy A27",
+      "category": "Smart Phone",
+      "price": 140000
+    }
+  ]
+}

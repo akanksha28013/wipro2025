@@ -1,0 +1,26 @@
+
+<div class="container mt-4">
+  <h3>Product List</h3> 
+  <button class="btn btn-primary mb-3" (click)="addProduct()">Add Product</button>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let product of products; let i = index">
+      <div class="card">
+       
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">
+            <strong>Category:</strong> {{ product.category }}<br>
+            <strong>Price:</strong> ${{ product.price }}
+          </p>
+          <div class="d-flex justify-content-between">
+            <a [routerLink]="['/productedit', product.id]" class="btn btn-warning">Edit</a>
+            <a [routerLink]="['/productdelete', product.id]" class="btn btn-danger">Delete</a>
+            <a [routerLink]="['/order']" class="btn btn-warning">Order</a>
+            <a [routerLink]="['/orderhistory']" class="btn btn-danger">Order HIstory</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
