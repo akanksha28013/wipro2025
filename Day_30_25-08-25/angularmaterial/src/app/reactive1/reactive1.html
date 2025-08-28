@@ -1,0 +1,61 @@
+<form class="form" [formGroup]="fg" (ngSubmit)="onSubmit()">
+  <!-- Name -->
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Full Name</mat-label>
+    <input matInput placeholder="Enter your name" formControlName="name" />
+  </mat-form-field>
+  @if (fg.controls['name'].invalid && (fg.controls['name'].touched || fg.controls['name'].dirty)) {
+    @if (fg.controls['name'].errors?.['required']) {
+      <span style="color:red">Name is required.</span>
+    }
+  }
+
+  <!-- Email -->
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="you@example.com" formControlName="email" />
+  </mat-form-field>
+  @if (fg.controls['email'].invalid && (fg.controls['email'].touched || fg.controls['email'].dirty)) {
+    @if (fg.controls['email'].errors?.['required']) {
+      <span style="color:red">Email is required.</span>
+    }
+    @if (fg.controls['email'].errors?.['email']) {
+      <span style="color:red">Enter a valid email.</span>
+    }
+  }
+
+  <!-- Date of Birth -->
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Date of Birth</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dob" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  @if (fg.controls['dob'].invalid && (fg.controls['dob'].touched || fg.controls['dob'].dirty)) {
+    @if (fg.controls['dob'].errors?.['required']) {
+      <span style="color:red">Date of Birth is required.</span>
+    }
+  }
+
+  <!-- Subject of Study -->
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Subject of Study</mat-label>
+    <mat-select formControlName="subject">
+      <mat-option value="" disabled>Select subject</mat-option>
+      @for (s of subjects; track s) {
+        <mat-option [value]="s">{{ s }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  @if (fg.controls['subject'].invalid && (fg.controls['subject'].touched || fg.controls['subject'].dirty)) {
+    @if (fg.controls['subject'].errors?.['required']) {
+      <span style="color:red">Subject is required.</span>
+    }
+  }
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="fg.invalid">
+      Save
+    </button>
+  </div>
+</form>
