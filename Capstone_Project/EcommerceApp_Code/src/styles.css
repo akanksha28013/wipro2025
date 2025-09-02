@@ -1,0 +1,28 @@
+/* Hero Banner */
+.hero-banner {
+  background: url('https://ewm.swiss/application/files/8216/1597/9679/E-commerce_web_design_EWM_SA_Digital_Agency_Geneva.jpg') no-repeat center center/cover;
+  height: 400px;
+}
+.hero-banner h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+.hero-banner p {
+  font-size: 1.3rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Category Cards */
+.category-card img {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}

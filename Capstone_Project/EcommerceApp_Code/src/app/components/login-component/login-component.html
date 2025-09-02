@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <h2>Login</h2>
+  <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+  <form (ngSubmit)="login()">
+    <div class="mb-3">
+      <label>User ID</label>
+      <input [(ngModel)]="userId" name="userId" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

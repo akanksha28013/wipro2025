@@ -1,0 +1,99 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Admin Dashboard</h2>
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+  </div>
+
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name..."
+        [(ngModel)]="searchTerm"
+        (input)="filterProducts()"
+      />
+    </div>
+    <div class="col-md-4">
+      <select
+        class="form-control"
+        [(ngModel)]="selectedCategory"
+        (change)="filterProducts()"
+      >
+        <option value="">All Categories</option>
+        <option *ngFor="let cat of categories" [value]="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="card p-3 mb-4">
+    <h4>{{ editingProductId ? '✏️ Edit Product' : 'Add Product' }}</h4>
+
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <input type="text" class="form-control" placeholder="Name" formControlName="prodName" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="text" class="form-control" placeholder="Description" formControlName="prodDesc" />
+      </div>
+      <div class="col-md-6 mb-2">
+     
+        <select class="form-control" formControlName="prodCat">
+          <option *ngFor="let cat of categories" [value]="cat">
+            {{ cat }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="text" class="form-control" placeholder="Make" formControlName="make" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="number" class="form-control" placeholder="Stock" formControlName="availableQty" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="number" class="form-control" placeholder="Price" formControlName="price" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="text" class="form-control" placeholder="Unit (UOM)" formControlName="uom" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="number" class="form-control" placeholder="Rating" formControlName="prodRating" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="text" class="form-control" placeholder="Image URL" formControlName="imageURL" />
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="date" class="form-control" formControlName="dateOfManufacture" />
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-2" type="submit">
+      {{ editingProductId ? 'Update Product' : 'Add Product' }}
+    </button>
+    <button *ngIf="editingProductId" class="btn btn-secondary mt-2 ms-2" type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+
+  
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let product of filteredProducts">
+      <div class="card">
+        <img [src]="product.imageURL" class="card-img-top" alt="{{ product.prodName }}" style="height:200px; object-fit:cover;" />
+        <div class="card-body">
+          <h5>{{ product.prodName }}</h5>
+          <p>{{ product.prodDesc }}</p>
+          <p><b>Category:</b> {{ product.prodCat }}</p>
+          <p><b>Stock:</b> {{ product.availableQty }}</p>
+          <p><b>Price:</b> ₹{{ product.price }}</p>
+          <p><b>Rating:</b> ⭐ {{ product.prodRating }}</p>
+          <p><b>Make:</b> {{ product.make }}</p>
+          <p><b>Manufactured:</b> {{ product.dateOfManufacture | date }}</p>
+          <button class="btn btn-primary btn-sm" (click)="editProduct(product)">✏️ Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id!)">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

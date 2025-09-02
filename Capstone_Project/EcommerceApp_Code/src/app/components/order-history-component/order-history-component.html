@@ -1,0 +1,38 @@
+<div class="order-container">
+  <h2>📦 Your Orders</h2>
+
+  <div *ngIf="loading">⏳ Loading orders...</div>
+
+  <div *ngIf="!loading && orders.length === 0">
+    <p>⚠️ No orders found.</p>
+  </div>
+
+  <table *ngIf="orders.length > 0" class="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.orderDate | date:'short' }}</td>
+        <td>{{ order.status }}</td>
+        <td>₹{{ order.totalAmount }}</td>
+        <td>
+          <button 
+            mat-raised-button 
+            color="warn" 
+            (click)="cancelOrder(order.id)" 
+            [disabled]="order.status === 'CANCELLED'">
+            Cancel
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

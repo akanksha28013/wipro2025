@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2>🛍️ Product Catalogue</h2>
+
+  <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let p of products">
+      <div class="card shadow-sm">
+        <img
+          [src]="p.imageURL"
+          class="card-img-top"
+          alt="{{ p.prodName }}"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ p.prodName }}</h5>
+          <p class="card-text">{{ p.prodDesc }}</p>
+          <p><b>Category:</b> {{ p.prodCat }}</p>
+          <p><b>Price:</b> ₹ {{ p.price }}</p>
+          <p><b>Stock:</b> {{ p.availableQty }}</p>
+          <p><b>Rating:</b> ⭐ {{ p.prodRating }}</p>
+
+          <button class="btn btn-success" (click)="addToCart(p.id)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

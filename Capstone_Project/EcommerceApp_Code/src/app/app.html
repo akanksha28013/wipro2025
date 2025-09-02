@@ -1,0 +1,99 @@
+<header class="bg-light shadow-sm">
+  <div class="container d-flex justify-content-between align-items-center py-2">
+    <div class="d-flex align-items-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" 
+           alt="Shop Logo" width="50" height="50" class="me-2" />
+      <h3 class="m-0 text-primary">My E-Shop</h3>
+    </div>
+
+       <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/catalogue">
+            <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" width="22" class="me-1" />
+            Shop
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">
+            <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" width="22" class="me-1" />
+            Cart
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/orders">
+            <img src="https://cdn-icons-png.flaticon.com/512/681/681662.png" width="22" class="me-1" />
+            Orders
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isAdmin()">
+          <a class="nav-link" routerLink="/admin">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="22" class="me-1" />
+            Admin
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+   
+    <div>
+      <button *ngIf="auth.isLoggedIn()" class="btn btn-danger" (click)="logout()">
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992680.png" width="20" class="me-1" />
+        Logout
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<section class="hero-banner text-center text-white d-flex align-items-center justify-content-center">
+  <div>
+    <h1 class="fw-bold" >Welcome to My E-Shop</h1>
+    <p class="lead">Best Deals · Latest Fashion · Fast Delivery 🚚</p>
+    <a routerLink="/catalogue" class="btn btn-primary btn-lg mt-3">🛒 Start Shopping</a>
+  </div>
+</section>
+
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">Shop by Category</h2>
+  <div class="row g-4">
+    
+    <div class="col-md-4">
+      <div class="card category-card shadow-sm">
+        <img src="https://imgk.timesnownews.com/story/1569756829-flipkart-large-appliances.jpg" class="card-img-top" alt="Electronics">
+        <div class="card-body text-center">
+          <h5 class="card-title">Electronics</h5>
+          <a routerLink="/catalogue" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-4">
+      <div class="card category-card shadow-sm">
+        <img src="https://dfupublications.com/images/2024/04/16/India's%20booming%20fashion%20e-commerce,%20a%20wardrobe%20revolution_large.jpg" class="card-img-top" alt="Fashion">
+        <div class="card-body text-center">
+          <h5 class="card-title">Fashion</h5>
+          <a routerLink="/catalogue" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-4">
+      <div class="card category-card shadow-sm">
+        <img src="https://i.pinimg.com/736x/21/5e/31/215e31a98cb6fd49cf29b70d8af45d6c.jpg" class="card-img-top" alt="Groceries">
+        <div class="card-body text-center">
+          <h5 class="card-title">Groceries</h5>
+          <a routerLink="/catalogue" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
